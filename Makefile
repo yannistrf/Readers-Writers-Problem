@@ -5,10 +5,10 @@ CC = gcc
 INCLUDE = ./include
 
 # compiler flags
-CFLAGS = -I$(INCLUDE) -Wall #-Werror
+CFLAGS = -I$(INCLUDE) -Wall -Werror -pthread
 
 # linker flags
-LDFLAGS = -lpthread
+LDFLAGS = -pthread
 
 # command line arguments
 # <filename> <lines_per_segment> <no_of_children> <requests_per_child>
@@ -28,7 +28,7 @@ OBJS = $(BIN)/parent.o $(BIN)/child.o $(BIN)/mem_util.o $(BIN)/file_util.o
 
 # rule to build executable
 $(EXEC): $(OBJS)
-	$(CC) $(OBJS) -o $(EXEC) $(LDFLAGS)
+	$(CC) $(LDFLAGS) $(OBJS) -o $(EXEC)
 
 # rule to build our object files
 $(BIN)/%.o: $(SRC)/%.c
