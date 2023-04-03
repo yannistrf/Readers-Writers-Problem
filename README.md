@@ -33,6 +33,7 @@ directory.
 
 ### Extra modules
 mem_util    -> a small interface for handling the shared memory
+
 file_util   -> performs certain actions on the argument file and
                helps the logging process
 
